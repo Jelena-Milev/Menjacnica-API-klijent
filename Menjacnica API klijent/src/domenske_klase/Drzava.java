@@ -2,10 +2,6 @@ package domenske_klase;
 
 public class Drzava {
 	
-	@Override
-	public String toString() {
-		return name;
-	}
 	private String alpha3;
 	private String currencyId;
 	private String currencyName;
@@ -50,7 +46,10 @@ public class Drzava {
 		this.name = name;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 
 }
