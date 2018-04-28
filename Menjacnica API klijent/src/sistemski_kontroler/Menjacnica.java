@@ -1,6 +1,7 @@
 package sistemski_kontroler;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import domenske_klase.Drzava;
@@ -16,7 +17,7 @@ public class Menjacnica {
 
 	}
 
-	public LinkedList<Drzava> vratiDrzave() {
+	public ArrayList<Drzava> vratiDrzave() {
 		return SOVratiDrzave.izvrsi();
 	}
 

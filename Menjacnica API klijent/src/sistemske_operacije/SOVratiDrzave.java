@@ -1,6 +1,7 @@
 package sistemske_operacije;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Map.Entry;
 
@@ -16,7 +17,7 @@ public class SOVratiDrzave {
 	public static final String service = "/countries";
 	public static final String CURRENCY_LAYER_API_URL = "http://free.currencyconverterapi.com/api/v3";
 
-	public static LinkedList<Drzava> izvrsi() {
+	public static ArrayList<Drzava> izvrsi() {
 
 		String url = CURRENCY_LAYER_API_URL + service;
 
@@ -29,7 +30,7 @@ public class SOVratiDrzave {
 
 			JsonObject countriesJson = contentJson.get("results").getAsJsonObject();
 
-			LinkedList<Drzava> list = new LinkedList<Drzava>();
+			ArrayList<Drzava> list = new ArrayList<Drzava>();
 			
 			for (Entry<String, JsonElement> entry : countriesJson.entrySet()) {
 				Drzava item = gson.fromJson(entry.getValue().getAsJsonObject(), Drzava.class);
