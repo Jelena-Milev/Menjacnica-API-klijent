@@ -7,25 +7,22 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.border.SoftBevelBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import domenske_klase.Drzava;
 import gui.kontroler.GUIKontroler;
 
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
-import java.awt.Rectangle;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-import javax.swing.UIManager;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class GlavniProzor extends JFrame {
 
@@ -45,7 +42,7 @@ public class GlavniProzor extends JFrame {
 	 * Create the frame.
 	 */
 	public GlavniProzor() {
-		drzave=GUIKontroler.menjacnica.vratiDrzave();
+		drzave = GUIKontroler.menjacnica.vratiDrzave();
 		setResizable(false);
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,8 +60,9 @@ public class GlavniProzor extends JFrame {
 		contentPane.add(getTextFieldFrom());
 		contentPane.add(getTextFieldTo());
 		contentPane.add(getBtnKonvertuj());
-		
+
 	}
+
 	private JLabel getLblFrom() {
 		if (lblFrom == null) {
 			lblFrom = new JLabel("Iz valute zemlje:");
@@ -72,6 +70,7 @@ public class GlavniProzor extends JFrame {
 		}
 		return lblFrom;
 	}
+
 	private JLabel getLblTo() {
 		if (lblTo == null) {
 			lblTo = new JLabel("U valute zemlje:");
@@ -79,23 +78,26 @@ public class GlavniProzor extends JFrame {
 		}
 		return lblTo;
 	}
+
 	private JComboBox getComboBoxFrom() {
-		if (comboBoxFrom == null) {			
-			
+		if (comboBoxFrom == null) {
+
 			comboBoxFrom = new JComboBox(drzave.toArray());
-			
+
 			comboBoxFrom.setBounds(32, 95, 172, 24);
 		}
 		return comboBoxFrom;
 	}
+
 	private JComboBox getComboBoxTo() {
 		if (comboBoxTo == null) {
 			comboBoxTo = new JComboBox(drzave.toArray());
-			
+
 			comboBoxTo.setBounds(251, 95, 172, 24);
 		}
 		return comboBoxTo;
 	}
+
 	private JLabel getLblIznoFrom() {
 		if (lblIznoFrom == null) {
 			lblIznoFrom = new JLabel("Iznos:");
@@ -103,6 +105,7 @@ public class GlavniProzor extends JFrame {
 		}
 		return lblIznoFrom;
 	}
+
 	private JLabel getLblIznosTo() {
 		if (lblIznosTo == null) {
 			lblIznosTo = new JLabel("Iznos:");
@@ -110,14 +113,30 @@ public class GlavniProzor extends JFrame {
 		}
 		return lblIznosTo;
 	}
+
 	private JTextField getTextFieldFrom() {
 		if (textFieldFrom == null) {
 			textFieldFrom = new JTextField();
+			textFieldFrom.getDocument().addDocumentListener(new DocumentListener() {
+				public void changedUpdate(DocumentEvent e) {
+					
+				}
+
+				public void removeUpdate(DocumentEvent e) {
+					if(textFieldFrom.getText().isEmpty())
+						btnKonvertuj.setEnabled(false);
+				}
+
+				public void insertUpdate(DocumentEvent e) {
+					btnKonvertuj.setEnabled(true);
+				}
+			});
 			textFieldFrom.setBounds(57, 183, 114, 19);
 			textFieldFrom.setColumns(10);
 		}
 		return textFieldFrom;
 	}
+
 	private JTextField getTextFieldTo() {
 		if (textFieldTo == null) {
 			textFieldTo = new JTextField();
@@ -126,10 +145,33 @@ public class GlavniProzor extends JFrame {
 		}
 		return textFieldTo;
 	}
+
 	private JButton getBtnKonvertuj() {
 		if (btnKonvertuj == null) {
 			btnKonvertuj = new JButton("Konvertuj");
-		
+			btnKonvertuj.setEnabled(false);
+			btnKonvertuj.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					int from = comboBoxFrom.getSelectedIndex();
+					int to = comboBoxTo.getSelectedIndex();
+					String valFrom = drzave.get(from).getCurrencyId();
+					String valTo = drzave.get(to).getCurrencyId();
+					Double iznosFrom = Double.parseDouble(textFieldFrom.getText());
+					Double kurs=0.0;
+					try {
+						kurs = GUIKontroler.menjacnica.vratiKurs(valFrom, valTo);
+						Double iznosTo = iznosFrom * kurs;
+						textFieldTo.setText("" + iznosTo);
+					} catch (Exception e) {
+						JOptionPane.showMessageDialog(null, "Ne postoje podaci o konverziji izmedju datih valuta.",
+								"Greska", JOptionPane.ERROR_MESSAGE);
+					}finally {
+						GUIKontroler.menjacnica.sacuvajLog(valFrom, valTo, kurs);
+					}
+
+				}
+			});
+
 			btnKonvertuj.setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 			btnKonvertuj.setBackground(Color.WHITE);
 			btnKonvertuj.setBounds(157, 232, 117, 25);
