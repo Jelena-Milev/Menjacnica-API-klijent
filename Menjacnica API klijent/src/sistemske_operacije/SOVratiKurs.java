@@ -10,7 +10,7 @@ public class SOVratiKurs {
 	public static final String service = "/convert";
 	public static final String CURRENCY_LAYER_API_URL = "http://free.currencyconverterapi.com/api/v3";
 
-	public static double izvrsi(String from, String to) {
+	public static double izvrsi(String from, String to) throws Exception {
 		String url = CURRENCY_LAYER_API_URL + service + '?' + "q=" + from + '_' + to;
 
 		try {
@@ -25,7 +25,7 @@ public class SOVratiKurs {
 				double k = kurs.get("val").getAsDouble();
 				return k;
 			} else
-				throw new RuntimeException("Ne postoje podaci o konverziji izmedju dve valute");
+				throw new Exception("Ne postoje podaci o konverziji izmedju dve valute");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}

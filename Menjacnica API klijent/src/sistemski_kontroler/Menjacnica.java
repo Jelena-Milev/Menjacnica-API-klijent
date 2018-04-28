@@ -21,7 +21,7 @@ public class Menjacnica {
 		return SOVratiDrzave.izvrsi();
 	}
 
-	public double vratiKurs(String from, String to) {
+	public double vratiKurs(String from, String to) throws Exception {
 		return SOVratiKurs.izvrsi(from, to);
 	}
 
