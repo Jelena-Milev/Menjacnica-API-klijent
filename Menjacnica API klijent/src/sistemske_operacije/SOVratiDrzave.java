@@ -15,7 +15,7 @@ import domenske_klase.Drzava;
 public class SOVratiDrzave {
 
 	public static final String service = "/countries";
-	public static final String CURRENCY_LAYER_API_URL = "http://free.currencyconverterapi.com/api/v3";
+	public static final String CURRENCY_LAYER_API_URL = "http://free.currencyconverterapi.com/api/v5";
 
 	public static ArrayList<Drzava> izvrsi() {
 
