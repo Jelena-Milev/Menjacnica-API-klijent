@@ -1,0 +1,44 @@
+[
+  {
+    "datumVreme": "2018-05-12 12-15-00.000891",
+    "izValute": "BAM",
+    "uValutu": "RSD",
+    "kurs": 60.336551
+  },
+  {
+    "datumVreme": "2018-05-12 12-15-31.000270",
+    "izValute": "RSD",
+    "uValutu": "BGN",
+    "kurs": 0.016566
+  },
+  {
+    "datumVreme": "2018-05-12 14-25-13.000235",
+    "izValute": "AFN",
+    "uValutu": "AFN",
+    "kurs": 1.0
+  },
+  {
+    "datumVreme": "2018-05-12 14-25-22.000662",
+    "izValute": "XCD",
+    "uValutu": "AFN",
+    "kurs": 26.087379
+  },
+  {
+    "datumVreme": "2018-05-12 14-25-48.000558",
+    "izValute": "AFN",
+    "uValutu": "XCD",
+    "kurs": 0.038333
+  },
+  {
+    "datumVreme": "2018-05-12 14-25-59.000384",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 14-26-12.000848",
+    "izValute": "AFN",
+    "uValutu": "BRL",
+    "kurs": 0.051017
+  }
+]

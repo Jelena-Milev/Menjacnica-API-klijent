@@ -23,6 +23,8 @@ import java.util.ArrayList;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
+import java.awt.Toolkit;
 
 public class GlavniProzor extends JFrame {
 
@@ -37,12 +39,14 @@ public class GlavniProzor extends JFrame {
 	private JTextField textFieldTo;
 	private JButton btnKonvertuj;
 	private ArrayList<Drzava> drzave;
-
+	private GUIKontroler guiKontr;
+	private JButton btnZameni;
 	/**
 	 * Create the frame.
 	 */
-	public GlavniProzor() {
-		drzave = GUIKontroler.menjacnica.vratiDrzave();
+	public GlavniProzor(GUIKontroler guiKontr) {
+		drzave = guiKontr.getMenjacnica().vratiDrzave();
+//		System.out.println(drzave);
 		setResizable(false);
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,7 +64,8 @@ public class GlavniProzor extends JFrame {
 		contentPane.add(getTextFieldFrom());
 		contentPane.add(getTextFieldTo());
 		contentPane.add(getBtnKonvertuj());
-
+		contentPane.add(getBtnZameni());
+		this.guiKontr=guiKontr;
 	}
 
 	private JLabel getLblFrom() {
@@ -84,7 +89,7 @@ public class GlavniProzor extends JFrame {
 
 			comboBoxFrom = new JComboBox(drzave.toArray());
 
-			comboBoxFrom.setBounds(32, 95, 172, 24);
+			comboBoxFrom.setBounds(32, 95, 166, 24);
 		}
 		return comboBoxFrom;
 	}
@@ -93,7 +98,7 @@ public class GlavniProzor extends JFrame {
 		if (comboBoxTo == null) {
 			comboBoxTo = new JComboBox(drzave.toArray());
 
-			comboBoxTo.setBounds(251, 95, 172, 24);
+			comboBoxTo.setBounds(246, 95, 171, 24);
 		}
 		return comboBoxTo;
 	}
@@ -159,14 +164,14 @@ public class GlavniProzor extends JFrame {
 					Double iznosFrom = Double.parseDouble(textFieldFrom.getText());
 					Double kurs=0.0;
 					try {
-						kurs = GUIKontroler.menjacnica.vratiKurs(valFrom, valTo);
+						kurs = guiKontr.getMenjacnica().vratiKurs(valFrom, valTo);
 						Double iznosTo = iznosFrom * kurs;
 						textFieldTo.setText("" + iznosTo);
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, "Ne postoje podaci o konverziji izmedju datih valuta.",
 								"Greska", JOptionPane.ERROR_MESSAGE);
 					}finally {
-						GUIKontroler.menjacnica.sacuvajLog(valFrom, valTo, kurs);
+						guiKontr.getMenjacnica().sacuvajLog(valFrom, valTo, kurs);
 					}
 
 				}
@@ -177,5 +182,22 @@ public class GlavniProzor extends JFrame {
 			btnKonvertuj.setBounds(157, 232, 117, 25);
 		}
 		return btnKonvertuj;
+	}
+	private JButton getBtnZameni() {
+		if (btnZameni == null) {
+			btnZameni = new JButton("");
+			btnZameni.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					Object temp=comboBoxFrom.getSelectedItem();
+					comboBoxFrom.setSelectedItem(comboBoxTo.getSelectedItem());
+					comboBoxTo.setSelectedItem(temp);
+					
+				}
+			});
+			btnZameni.setContentAreaFilled(false);
+			btnZameni.setIcon(new ImageIcon(GlavniProzor.class.getResource("/switch/switch.png")));
+			btnZameni.setBounds(210, 95, 24, 24);
+		}
+		return btnZameni;
 	}
 }
