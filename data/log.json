@@ -40,5 +40,149 @@
     "izValute": "AFN",
     "uValutu": "BRL",
     "kurs": 0.051017
+  },
+  {
+    "datumVreme": "2018-05-12 15-02-25.000783",
+    "izValute": "XOF",
+    "uValutu": "AFN",
+    "kurs": 0.128543
+  },
+  {
+    "datumVreme": "2018-05-12 15-02-30.000173",
+    "izValute": "AFN",
+    "uValutu": "XOF",
+    "kurs": 7.779527
+  },
+  {
+    "datumVreme": "2018-05-12 15-50-25.000793",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 15-53-47.000494",
+    "izValute": "BDT",
+    "uValutu": "AFN",
+    "kurs": 0.850374
+  },
+  {
+    "datumVreme": "2018-05-12 15-54-13.000129",
+    "izValute": "AFN",
+    "uValutu": "BDT",
+    "kurs": 1.175954
+  },
+  {
+    "datumVreme": "2018-05-12 16-10-59.000413",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-11-23.000771",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-11-24.000507",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-11-25.000379",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-12-53.000392",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-14-30.000963",
+    "izValute": "AUD",
+    "uValutu": "AFN",
+    "kurs": 53.226002
+  },
+  {
+    "datumVreme": "2018-05-12 16-17-46.000830",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 16-18-28.000033",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 16-24-56.000233",
+    "izValute": "XCD",
+    "uValutu": "AFN",
+    "kurs": 26.087379
+  },
+  {
+    "datumVreme": "2018-05-12 16-25-26.000611",
+    "izValute": "AFN",
+    "uValutu": "XCD",
+    "kurs": 0.038333
+  },
+  {
+    "datumVreme": "2018-05-12 16-27-42.000070",
+    "izValute": "BDT",
+    "uValutu": "AFN",
+    "kurs": 0.850374
+  },
+  {
+    "datumVreme": "2018-05-12 16-27-45.000470",
+    "izValute": "AFN",
+    "uValutu": "BDT",
+    "kurs": 1.175954
+  },
+  {
+    "datumVreme": "2018-05-12 16-27-49.000704",
+    "izValute": "BRL",
+    "uValutu": "BDT",
+    "kurs": 23.050388
+  },
+  {
+    "datumVreme": "2018-05-12 16-27-54.000523",
+    "izValute": "BDT",
+    "uValutu": "BRL",
+    "kurs": 0.043383
+  },
+  {
+    "datumVreme": "2018-05-12 16-29-46.000460",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 16-29-49.000432",
+    "izValute": "AFN",
+    "uValutu": "BRL",
+    "kurs": 0.051017
+  },
+  {
+    "datumVreme": "2018-05-12 16-29-53.000549",
+    "izValute": "BRL",
+    "uValutu": "AFN",
+    "kurs": 19.601444
+  },
+  {
+    "datumVreme": "2018-05-12 16-30-32.000185",
+    "izValute": "BDT",
+    "uValutu": "AFN",
+    "kurs": 0.850374
+  },
+  {
+    "datumVreme": "2018-05-12 16-30-36.000326",
+    "izValute": "AFN",
+    "uValutu": "BDT",
+    "kurs": 1.175954
   }
 ]

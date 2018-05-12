@@ -11,15 +11,25 @@ import sistemske_operacije.SOVratiDrzave;
 import sistemske_operacije.SOVratiKurs;
 
 public class Menjacnica {
-
+	private ArrayList<Drzava> drzave;
+	
+	public Menjacnica() {
+		this.drzave = this.vratiDrzaveSaURL();
+	}	
+	
 	public String ucitajSaURL(String url) throws IOException {
 		return SOUcitajSaURL.izvrsi(url);
 
 	}
 
-	public ArrayList<Drzava> vratiDrzave() {
+	public ArrayList<Drzava> vratiDrzaveSaURL() {
 		return SOVratiDrzave.izvrsi();
 	}
+	
+	public ArrayList<Drzava> vratiDrzave() {
+		return this.drzave;
+	}
+
 
 	public double vratiKurs(String from, String to) throws Exception {
 		return SOVratiKurs.izvrsi(from, to);

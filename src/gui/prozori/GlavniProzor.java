@@ -38,15 +38,13 @@ public class GlavniProzor extends JFrame {
 	private JTextField textFieldFrom;
 	private JTextField textFieldTo;
 	private JButton btnKonvertuj;
-	private ArrayList<Drzava> drzave;
 	private GUIKontroler guiKontr;
 	private JButton btnZameni;
 	/**
 	 * Create the frame.
 	 */
 	public GlavniProzor(GUIKontroler guiKontr) {
-		drzave = guiKontr.getMenjacnica().vratiDrzave();
-//		System.out.println(drzave);
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GlavniProzor.class.getResource("/money-icon.png")));
 		setResizable(false);
 		setTitle("Menjacnica");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -66,6 +64,8 @@ public class GlavniProzor extends JFrame {
 		contentPane.add(getBtnKonvertuj());
 		contentPane.add(getBtnZameni());
 		this.guiKontr=guiKontr;
+		guiKontr.popuniComboBox(comboBoxFrom);
+		guiKontr.popuniComboBox(comboBoxTo);
 	}
 
 	private JLabel getLblFrom() {
@@ -86,9 +86,7 @@ public class GlavniProzor extends JFrame {
 
 	private JComboBox getComboBoxFrom() {
 		if (comboBoxFrom == null) {
-
-			comboBoxFrom = new JComboBox(drzave.toArray());
-
+			comboBoxFrom=new JComboBox<>();
 			comboBoxFrom.setBounds(32, 95, 166, 24);
 		}
 		return comboBoxFrom;
@@ -96,8 +94,7 @@ public class GlavniProzor extends JFrame {
 
 	private JComboBox getComboBoxTo() {
 		if (comboBoxTo == null) {
-			comboBoxTo = new JComboBox(drzave.toArray());
-
+			comboBoxTo=new JComboBox<>();
 			comboBoxTo.setBounds(246, 95, 171, 24);
 		}
 		return comboBoxTo;
@@ -159,8 +156,8 @@ public class GlavniProzor extends JFrame {
 				public void actionPerformed(ActionEvent arg0) {
 					int from = comboBoxFrom.getSelectedIndex();
 					int to = comboBoxTo.getSelectedIndex();
-					String valFrom = drzave.get(from).getCurrencyId();
-					String valTo = drzave.get(to).getCurrencyId();
+					String valFrom = guiKontr.getMenjacnica().vratiDrzave().get(from).getCurrencyId();
+					String valTo = guiKontr.getMenjacnica().vratiDrzave().get(to).getCurrencyId();
 					Double iznosFrom = Double.parseDouble(textFieldFrom.getText());
 					Double kurs=0.0;
 					try {
@@ -188,10 +185,11 @@ public class GlavniProzor extends JFrame {
 			btnZameni = new JButton("");
 			btnZameni.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					Object temp=comboBoxFrom.getSelectedItem();
-					comboBoxFrom.setSelectedItem(comboBoxTo.getSelectedItem());
-					comboBoxTo.setSelectedItem(temp);
-					
+					int from=comboBoxFrom.getSelectedIndex();
+					comboBoxFrom.setSelectedIndex(comboBoxTo.getSelectedIndex());
+					comboBoxTo.setSelectedIndex(from);
+//					ne radi, zasto?
+//					comboBoxFrom.setSelectedItem(comboBoxTo.getSelectedItem());
 				}
 			});
 			btnZameni.setContentAreaFilled(false);
