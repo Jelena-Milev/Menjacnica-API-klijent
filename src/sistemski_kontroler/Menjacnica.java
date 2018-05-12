@@ -6,9 +6,9 @@ import java.util.LinkedList;
 
 import domenske_klase.Drzava;
 import sistemske_operacije.SOSacuvajKonverziju;
-import sistemske_operacije.SOUcitajSaURL;
 import sistemske_operacije.SOVratiDrzave;
 import sistemske_operacije.SOVratiKurs;
+import utility.UcitajSaURL;
 
 public class Menjacnica {
 	private ArrayList<Drzava> drzave;
@@ -18,7 +18,7 @@ public class Menjacnica {
 	}	
 	
 	public String ucitajSaURL(String url) throws IOException {
-		return SOUcitajSaURL.izvrsi(url);
+		return UcitajSaURL.izvrsi(url);
 
 	}
 

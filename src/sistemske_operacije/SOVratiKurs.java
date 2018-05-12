@@ -5,6 +5,8 @@ import java.io.IOException;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import utility.UcitajSaURL;
+
 public class SOVratiKurs {
 
 	public static final String service = "/convert";
@@ -14,7 +16,7 @@ public class SOVratiKurs {
 		String url = CURRENCY_LAYER_API_URL + service + '?' + "q=" + from + '_' + to;
 
 		try {
-			String content = SOUcitajSaURL.izvrsi(url);
+			String content = UcitajSaURL.izvrsi(url);
 			JsonParser parser = new JsonParser();
 			JsonObject con = parser.parse(content).getAsJsonObject();
 

@@ -11,6 +11,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 import domenske_klase.Drzava;
+import utility.UcitajSaURL;
 
 public class SOVratiDrzave {
 
@@ -22,7 +23,7 @@ public class SOVratiDrzave {
 		String url = CURRENCY_LAYER_API_URL + service;
 
 		try {
-			String content = SOUcitajSaURL.izvrsi(url);
+			String content = UcitajSaURL.izvrsi(url);
 
 			Gson gson = new GsonBuilder().create();
 
