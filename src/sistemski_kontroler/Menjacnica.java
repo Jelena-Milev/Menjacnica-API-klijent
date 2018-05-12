@@ -2,12 +2,9 @@ package sistemski_kontroler;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import domenske_klase.Drzava;
-import sistemske_operacije.SOSacuvajKonverziju;
-import sistemske_operacije.SOVratiDrzave;
-import sistemske_operacije.SOVratiKurs;
+import sistemske_operacije.SistemskeOperacije;
 import utility.UcitajSaURL;
 
 public class Menjacnica {
@@ -23,7 +20,7 @@ public class Menjacnica {
 	}
 
 	public ArrayList<Drzava> vratiDrzaveSaURL() {
-		return SOVratiDrzave.izvrsi();
+		return SistemskeOperacije.vratiDrzave();
 	}
 	
 	public ArrayList<Drzava> vratiDrzave() {
@@ -32,11 +29,11 @@ public class Menjacnica {
 
 
 	public double vratiKurs(String from, String to) throws Exception {
-		return SOVratiKurs.izvrsi(from, to);
+		return SistemskeOperacije.vratiKurs(from, to);
 	}
 
 	public void sacuvajLog(String from, String to, double kurs) {
-		SOSacuvajKonverziju.izvrsi(from, to, kurs);
+		SistemskeOperacije.sacuvajKonverziju(from, to, kurs);
 	}
 
 }

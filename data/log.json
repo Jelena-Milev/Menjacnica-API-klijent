@@ -184,5 +184,17 @@
     "izValute": "AFN",
     "uValutu": "BDT",
     "kurs": 1.175954
+  },
+  {
+    "datumVreme": "2018-05-12 16-49-33.000270",
+    "izValute": "XOF",
+    "uValutu": "AFN",
+    "kurs": 0.128543
+  },
+  {
+    "datumVreme": "2018-05-12 16-49-39.000342",
+    "izValute": "AFN",
+    "uValutu": "XOF",
+    "kurs": 7.779527
   }
 ]
