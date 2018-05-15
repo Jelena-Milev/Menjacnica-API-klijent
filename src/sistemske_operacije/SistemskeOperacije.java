@@ -41,7 +41,7 @@ public class SistemskeOperacije {
 
 		JsonArray history=null;
 
-//		objekat konverzija -> Json sting
+//		objekat Konverzija konverzija -> Json sting
 		String obj = gson.toJson(konverzija);
 //		Json string -> JsonObject
 		JsonObject jsonKon = gson.fromJson(obj, JsonObject.class);

@@ -58,7 +58,7 @@ public class GUIKontroler {
 	
 	
 	public void popuniComboBox(JComboBox<Drzava> comboBox) {
-		ArrayList<Drzava> d=menjacnica.vratiDrzave();
+		ArrayList<Drzava> d=menjacnica.getDrzave();
 		for (int i = 0; i < d.size(); i++) {
 			comboBox.addItem(d.get(i));
 		}		

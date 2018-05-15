@@ -1,6 +1,6 @@
 package domenske_klase;
 
-public class Drzava {
+public class Drzava implements Comparable<Drzava> {
 	
 	private String alpha3;
 	private String currencyId;
@@ -49,6 +49,10 @@ public class Drzava {
 	@Override
 	public String toString() {
 		return name;
+	}
+	@Override
+	public int compareTo(Drzava o) {
+		return this.getName().compareTo(o.getName());
 	}
 	
 

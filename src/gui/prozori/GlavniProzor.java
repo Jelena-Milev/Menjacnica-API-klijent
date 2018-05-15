@@ -154,21 +154,19 @@ public class GlavniProzor extends JFrame {
 			btnKonvertuj.setEnabled(false);
 			btnKonvertuj.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
-					int from = comboBoxFrom.getSelectedIndex();
-					int to = comboBoxTo.getSelectedIndex();
-					String valFrom = guiKontr.getMenjacnica().vratiDrzave().get(from).getCurrencyId();
-					String valTo = guiKontr.getMenjacnica().vratiDrzave().get(to).getCurrencyId();
-					Double iznosFrom = Double.parseDouble(textFieldFrom.getText());
-					Double kurs=0.0;
+//					ili da daje Object a da Menjacnica konvertuje u Drzava?
+					Drzava from=(Drzava)comboBoxFrom.getSelectedItem();
+					Drzava to=(Drzava)comboBoxTo.getSelectedItem();
+					String iznosFrom = textFieldFrom.getText();					
 					try {
-						kurs = guiKontr.getMenjacnica().vratiKurs(valFrom, valTo);
-						Double iznosTo = iznosFrom * kurs;
-						textFieldTo.setText("" + iznosTo);
-					} catch (Exception e) {
+//						Double kurs=
+						textFieldTo.setText("" + guiKontr.getMenjacnica().konvertuj(from, to, iznosFrom));
+					}catch (NumberFormatException e) {
+						JOptionPane.showMessageDialog(null, "Morate uneti brojcanu vrednost.",
+								"Greska", JOptionPane.ERROR_MESSAGE);
+					}catch (Exception e) {
 						JOptionPane.showMessageDialog(null, "Ne postoje podaci o konverziji izmedju datih valuta.",
 								"Greska", JOptionPane.ERROR_MESSAGE);
-					}finally {
-						guiKontr.getMenjacnica().sacuvajLog(valFrom, valTo, kurs);
 					}
 
 				}
@@ -189,7 +187,9 @@ public class GlavniProzor extends JFrame {
 					comboBoxFrom.setSelectedIndex(comboBoxTo.getSelectedIndex());
 					comboBoxTo.setSelectedIndex(from);
 //					ne radi, zasto?
+//					Object from=comboBoxFrom.getSelectedItem();
 //					comboBoxFrom.setSelectedItem(comboBoxTo.getSelectedItem());
+//					comboBoxTo.setSelectedItem(from);
 				}
 			});
 			btnZameni.setContentAreaFilled(false);

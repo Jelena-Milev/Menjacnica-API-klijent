@@ -196,5 +196,41 @@
     "izValute": "AFN",
     "uValutu": "XOF",
     "kurs": 7.779527
+  },
+  {
+    "datumVreme": "2018-05-16 00-42-01.000396",
+    "izValute": "AOA",
+    "uValutu": "AFN",
+    "kurs": 0.309656
+  },
+  {
+    "datumVreme": "2018-05-16 00-42-09.000196",
+    "izValute": "AOA",
+    "uValutu": "AFN",
+    "kurs": 0.309656
+  },
+  {
+    "datumVreme": "2018-05-16 00-57-29.000468",
+    "izValute": "XCD",
+    "uValutu": "AFN",
+    "kurs": 26.363704
+  },
+  {
+    "datumVreme": "2018-05-16 00-57-33.000789",
+    "izValute": "AFN",
+    "uValutu": "XCD",
+    "kurs": 0.038011
+  },
+  {
+    "datumVreme": "2018-05-16 00-58-28.000003",
+    "izValute": "AOA",
+    "uValutu": "AFN",
+    "kurs": 0.309656
+  },
+  {
+    "datumVreme": "2018-05-16 00-58-32.000024",
+    "izValute": "AFN",
+    "uValutu": "AOA",
+    "kurs": 3.229388
   }
 ]
