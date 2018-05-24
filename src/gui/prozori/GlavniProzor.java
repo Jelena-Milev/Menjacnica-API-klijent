@@ -159,7 +159,6 @@ public class GlavniProzor extends JFrame {
 					Drzava to=(Drzava)comboBoxTo.getSelectedItem();
 					String iznosFrom = textFieldFrom.getText();					
 					try {
-//						Double kurs=
 						textFieldTo.setText("" + guiKontr.getMenjacnica().konvertuj(from, to, iznosFrom));
 					}catch (NumberFormatException e) {
 						JOptionPane.showMessageDialog(null, "Morate uneti brojcanu vrednost.",

@@ -40,7 +40,9 @@ public class Menjacnica {
 //	Da li ovo da bude u klasi SistemskeOperacije ili ovde?
 	public double konvertuj(Drzava from, Drzava to, String iznos) throws Exception {
 		Double iznosFrom=Double.parseDouble(iznos);
-		double kurs = vratiKurs(from.getCurrencyId(), to.getCurrencyId());		
-		return iznosFrom*kurs;		
+		double kurs = vratiKurs(from.getCurrencyId(), to.getCurrencyId());	
+		if(kurs==0)
+			throw new Exception("Ne postoje podaci o konverziji izmedju dve valute");
+		else return iznosFrom*kurs;		
 	}
 }

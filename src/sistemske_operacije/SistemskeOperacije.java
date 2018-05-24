@@ -79,7 +79,8 @@ public class SistemskeOperacije {
 				double k = kurs.get("val").getAsDouble();
 				return k;
 			} else
-				throw new Exception("Ne postoje podaci o konverziji izmedju dve valute");
+				return 0;
+//				throw new Exception("Ne postoje podaci o konverziji izmedju dve valute");
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}

@@ -232,5 +232,17 @@
     "izValute": "AFN",
     "uValutu": "AOA",
     "kurs": 3.229388
+  },
+  {
+    "datumVreme": "2018-05-24 16-43-34.000303",
+    "izValute": "AFG",
+    "uValutu": "AFN",
+    "kurs": null
+  },
+  {
+    "datumVreme": "2018-05-24 16-44-18.000315",
+    "izValute": "EUR",
+    "uValutu": "AFN",
+    "kurs": 84.052512
   }
 ]
